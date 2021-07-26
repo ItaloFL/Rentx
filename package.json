@@ -1,0 +1,51 @@
+{
+  "name": "ignite",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "tsnd -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn src/shared/infra/http/server.ts",
+    "typeorm": "tsnd -r tsconfig-paths/register ./node_modules/typeorm/cli",
+    "test": "NODE_ENV=test jest --runInBand --detectOpenHandles",
+    "seed:admin": "tsnd src/shared/infra/http/typeorm/seed/admin.ts"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/express": "^4.17.11",
+    "@types/jest": "^26.0.23",
+    "@types/jsonwebtoken": "^8.5.1",
+    "@types/mime": "^2.0.3",
+    "@types/nodemailer": "^6.4.4",
+    "@types/supertest": "^2.0.11",
+    "@types/swagger-ui-express": "^4.1.2",
+    "@types/uuid": "^8.3.0",
+    "jest": "^27.0.5",
+    "ts-jest": "^27.0.3",
+    "ts-node-dev": "^1.1.6",
+    "tsconfig-paths": "^3.9.0",
+    "typescript": "^4.2.4"
+  },
+  "dependencies": {
+    "@types/multer": "^1.4.5",
+    "aws-sdk": "^2.946.0",
+    "bcryptjs": "^2.4.3",
+    "class-transformer": "^0.4.0",
+    "csv-parse": "^4.15.4",
+    "dayjs": "^1.10.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "handlebars": "^4.7.7",
+    "jsonwebtoken": "^8.5.1",
+    "mime": "^2.5.2",
+    "multer": "^1.4.2",
+    "nodemailer": "^6.6.2",
+    "pg": "^8.6.0",
+    "reflect-metadata": "^0.1.13",
+    "supertest": "^6.1.3",
+    "swagger-ui-express": "^4.1.6",
+    "tsyringe": "^4.5.0",
+    "typeorm": "^0.2.34",
+    "uuid": "^8.3.2"
+  }
+}
