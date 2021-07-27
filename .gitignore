@@ -3,3 +3,6 @@ node_modules
 .env
 Diagrama.png
 ormconfig.json
+tmp/*
+!tmp/.gitkeep
+dist

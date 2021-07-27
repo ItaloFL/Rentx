@@ -33,7 +33,7 @@ import fs from 'fs';
 
       const templateParse = Handlebars.compile(templateFileContent);
 
-      const  templateHTML = templateParse(variables)
+      const templateHTML = templateParse(variables)
 
       const message = await this.client.sendMail({
         to,
