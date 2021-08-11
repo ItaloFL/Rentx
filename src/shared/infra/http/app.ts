@@ -5,6 +5,7 @@ import { routes } from './routes';
 import swaggerUi from 'swagger-ui-express'
 import 'reflect-metadata'
 import 'dotenv/config'
+import cors from "cors"
 
 import createConneciton from './typeorm'
 
@@ -26,7 +27,7 @@ app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerFle))
 app.use("/avatar", express.static(`${upload.tmpFolder}/avatar`))
 app.use("/cars", express.static(`${upload.tmpFolder}/cars`))
 
-
+app.use(cors())
 app.use(routes)
 
 app.use((err: Error, request: Request, response: Response, next:NextFunction) =>{
