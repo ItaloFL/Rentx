@@ -16,9 +16,12 @@ import './typeorm'
 import '@shared/container'
 import { AppError } from '@shared/errors/AppError';
 import upload from '@config/upload';
+import rateLimiter from '../http/middlewares/rateLimiter'
 
 createConneciton()
 const app = express();
+
+app.use(rateLimiter)
 
 app.use(express.json())
     

@@ -45,12 +45,16 @@ class AutenticateUserUseCase {
         const user = await this.userRepository.findByEmail(email)
         const { expires_in_refresh_token, expires_in_token, secret_refresh_token, secret_token, expires_refresh_token_days} = auth
 
+        console.log(user)
 
         if(!user){
             throw new AppError("Usuario ou senha incorretos")
         }
 
-        const passwordMatch = await compare(password, user.password)
+        const passwordMatch = compare(password, user.password)
+
+
+        console.log(password, user.password, passwordMatch)
 
         if(!passwordMatch){
             throw new AppError("Usuario ou senha incorretos")
