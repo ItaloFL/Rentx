@@ -4,12 +4,13 @@ import { IUserRepository } from "@modules/accounts/Repositories/IUsersRepository
 
 import { sign } from 'jsonwebtoken'
  
-import { compare } from 'bcryptjs'
+
 
 import { AppError } from '@shared/errors/AppError'
 import { IUsersTokensRepository } from "@modules/accounts/Repositories/IUsersTokensRepository";
 import auth from "@config/auth";
 import { IDateProvider } from "@shared/container/providers/DayProvider/IDateProvider";
+import { compare } from "bcryptjs";
 
 interface IRequest{ 
     email: string;
@@ -43,9 +44,8 @@ class AutenticateUserUseCase {
     async execute({email, password} : IRequest) :Promise<IResponse>{
 
         const user = await this.userRepository.findByEmail(email)
-        const { expires_in_refresh_token, expires_in_token, secret_refresh_token, secret_token, expires_refresh_token_days} = auth
+        const { expires_in_refresh_token, expires_in_token, secret_refresh_token, secret_token, expires_refresh_token_days } = auth
 
-        console.log(user)
 
         if(!user){
             throw new AppError("Usuario ou senha incorretos")
@@ -53,8 +53,6 @@ class AutenticateUserUseCase {
 
         const passwordMatch = compare(password, user.password)
 
-
-        console.log(password, user.password, passwordMatch)
 
         if(!passwordMatch){
             throw new AppError("Usuario ou senha incorretos")
