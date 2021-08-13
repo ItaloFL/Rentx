@@ -51,7 +51,7 @@ class AutenticateUserUseCase {
             throw new AppError("Usuario ou senha incorretos")
         }
 
-        const passwordMatch = compare(password, user.password)
+        const passwordMatch = await compare(password, user.password)
 
 
         if(!passwordMatch){
